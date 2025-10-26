@@ -1,5 +1,7 @@
 package com.teckbook.domain.model;
 
+import jakarta.persistence.Embeddable;
+
 @Embeddable
 public record ISBN(String code) {
     // コンストラクターでバリデーション
@@ -10,7 +12,7 @@ public record ISBN(String code) {
         }
 
         if(!code.matches("^(978|979)\\d{10}$")) {
-            throw new IllegalArgumentException("ISBN must be 13 digits starting with 978 or 979, but got: " + codet );
+            throw new IllegalArgumentException("ISBN must be 13 digits starting with 978 or 979, but got: " + code );
         }
     }
 }
